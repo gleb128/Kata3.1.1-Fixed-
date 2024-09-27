@@ -1,0 +1,8 @@
+<h2>Edit User Form</h2>
+<form th:action="@{/Users/updateUser}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Name: <input type="text" th:field="*{name}"/></label><br/>
+    <label>Last name: <input type="text" th:field="*{lastName}"/></label><br/>
+    <label>Age: <input type="text" th:field="*{age}"/></label><br/>
+    <input type="submit" value="OK"/>
+</form>
