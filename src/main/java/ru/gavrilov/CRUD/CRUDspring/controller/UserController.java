@@ -10,7 +10,7 @@ import ru.gavrilov.CRUD.CRUDspring.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Users")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
@@ -20,29 +20,29 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/AllUsers")
+    @GetMapping("/all-users")
     public String ShowUsers(Model model) {
         List<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "ShowUsers";
     }
 
-    @GetMapping("/addNewUser")
+    @GetMapping("/add-new-user")
     public String addNewUser(Model model) {
         model.addAttribute("user", new User());
         return "userForm";
     }
 
-    @PostMapping("/saveNewUser")
+    @PostMapping("/save-new-user")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "redirect:/Users/AllUsers";
+        return "redirect:/users/all-users";
     }
 
     @PostMapping("/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
-        return "redirect:/Users/AllUsers";
+        return "redirect:/users/all-users";
     }
 
     @GetMapping("/edit")
@@ -52,9 +52,9 @@ public class UserController {
         return "userEditForm";
     }
 
-    @PostMapping("/updateUser")
+    @PostMapping("/update-user")
     public String updateUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
-        return "redirect:/Users/AllUsers";
+        return "redirect:/users/all-users";
     }
 }
