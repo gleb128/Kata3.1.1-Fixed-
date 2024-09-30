@@ -1,24 +1,21 @@
 package ru.gavrilov.CRUD.CRUDspring.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
-@jakarta.persistence.Entity
+@Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @jakarta.persistence.Column(name = "name")
+
     private String name;
 
-    @jakarta.persistence.Column(name = "lastName")
+
     private String lastName;
 
-    @jakarta.persistence.Column(name = "age")
+
     private Byte age;
 
     public User() {
